@@ -1,47 +1,101 @@
-/* Labels */
-label {
-    display: block;
-    margin-top: 20px;
-    font-size: 0.95rem;
-    text-align: left;
+/* Style for the form button */
+:root {
+    --primary-color: black;
+    --secondary-color: #444;
+    --warning-color: #af4c4c;
+    --accent-color: #555;
+    --text-color: #111;
+    --light-gray: #f5f5f5;
+    --medium-gray: #dcdcdc;
+    --dark-gray: #888;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 3px 10px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
 }
 
-/* Inputs */
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    background-color: #222;
-    border: 1px solid #555;
-    color: #fff;
-    border-radius: 6px;
-    transition: border 0.3s, background-color 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #fff;
-    background-color: #000;
-    outline: none;
-}
-
-/* Submit button */
-input[type="submit"] {
-    margin-top: 25px;
+.notion-button {
+    color: var(--primary-color);
+    background-color: var(--light-gray);
     padding: 10px 20px;
-    width: 100%;
-    background-color: #fff;
-    color: #000;
     border: none;
     border-radius: 6px;
-    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-input[type="submit"]:hover {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #fff;
+.notion-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 4px var(--medium-gray);
+    background-color: var(--dark-gray);
+}
+
+
+.floating-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.floating-button {
+    background: white;
+    color: black;
+    font-size: 24px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 10px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.floating-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--dark-gray);
+}
+
+.menu-option {
+    background: white;
+    color: black;
+    font-size: 14px;
+    padding: 8px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    visibility:hidden;
+}
+
+.menu-option:hover {
+    background-color: var(--dark-gray);
+    cursor:pointer;
+}
+
+.floating-container:hover .menu-option {
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility:visible;
+}
+
+/* Staggered animation delays */
+.menu-option:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.menu-option:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.menu-option:nth-child(3) {
+    transition-delay: 0s;
+}
+
+.floating-container:not(:hover) .menu-option {
+    transition-delay: 0s !important;
 }

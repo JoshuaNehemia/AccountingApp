@@ -1,3 +1,6 @@
+<?php
+$selected = "dashboard";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,53 +13,30 @@
 </head>
 
 <body>
-  <div class="background-wrapper">
-    <div class="navigation">
-      <img src="/AccountingApp/App/Assets/Images/bag.svg" alt="accounting-app-logo" />
-      <nav>
-        <a class="center selected" data-tooltip="Dashboard">
-          <img src="/AccountingApp/App/Assets/Images/finance.svg" alt="finance-icon" />
-        </a>
-        <a class="center" data-tooltip="Transactions">
-          <img src="/AccountingApp/App/Assets/Images/receipt.svg" alt="receipt-icon" />
-        </a>
-        <a class="center" data-tooltip="Accounts">
-          <img src="/AccountingApp/App/Assets/Images/balance.svg" alt="balance-icon" />
-        </a>
-        <a class="center" data-tooltip="Budget">
-          <img src="/AccountingApp/App/Assets/Images/budget.svg" alt="budget-icon" />
-        </a>
-      </nav>
-    </div>
+  <?php
+  include("../Assets/Snippets/navigation-bar.php");
+  ?>
 
-    <div class="content">
-      <h1 class="title left">Dashboards</h1>
-      <div class="summary">
-        <div class="assets">
-          <div class="header">
-            <img src="/AccountingApp/App/Assets/Images/money.svg" alt="money-icon" />
-            <b>Total Assets: </b>
-          </div>
-          <div class="value">
-            <div>$12,345.00</div>
-          </div>
+  <div class="content">
+    <h1 class="title left">Dashboards</h1>
+    <div class="summary">
+      <div class="assets">
+        <div class="header">
+          <img src="/AccountingApp/App/Assets/Images/money.svg" alt="money-icon" />
+          <b>Total Assets: </b>
         </div>
+        <div class="value">
+          <div>$12,345.00</div>
+        </div>
+      </div>
 
-        <div class="inout">
-          <div class="header">
-            <img src="/AccountingApp/App/Assets/Images/inout.svg" alt="in-out-icon" />
-            <b>In and Out: </b>
-          </div>
-          <div class="value">
-            <div>$12,345.00</div>
-            <div class="option">
-              <select name="timeframe">
-                <option value="week">This week</option>
-                <option value="month">This month</option>
-                <option value="year">This year</option>
-              </select>
-            </div>
-          </div>
+      <div class="inout">
+        <div class="header">
+          <img src="/AccountingApp/App/Assets/Images/inout.svg" alt="in-out-icon" />
+          <b>In and Out: </b>
+        </div>
+        <div class="value">
+          <div>$12,345.00</div>
         </div>
       </div>
     </div>
